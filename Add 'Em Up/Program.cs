@@ -1,88 +1,51 @@
-﻿
+﻿using static System.Console;
+using Game;
 
-using Add__Em_Up;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
+var card = new Card();
+var suit = new Suit();
+var validation = new Validation();
 
+var gameTable = new List<GameTable>();
+var gameList = File.ReadAllLines("abc.txt");
 
-var suitScore = new SuitScore();
-var cardScore = new CardScore();
-var vaildation = new Vaildation();
-string winner = "";
-List<GameTable> table = new List<GameTable>();
-
-
-//Console.WriteLine("Players\t Cards\t\t Suit point\t\t Card point");
-
-string[] gameList = File.ReadAllLines("abc.txt");
-
-Console.WriteLine("Processing File");
-if (!vaildation.checkGame(gameList))
+WriteLine("Processing File");
+if (!Validation.CheckGame(gameList))
 {
-    winner = "ERROR";
-}
-else
-{
-
-    foreach (string game in gameList)
-    {
-        string[] cards = game.Split(':')[1].Split(',');
-
-        table.Add(new GameTable
-        {
-            Player = game.Split(':')[0],
-            Cards = cards,
-            CardScore = cardScore.GetCardScore(cards),
-            SuitScore = suitScore.GetSuitScore(cards)
-        });
-    }
-
-    var orderedTableByCardScore = table.OrderByDescending(x => x.CardScore).ToList();
-
-    var highestScore = orderedTableByCardScore.FirstOrDefault().CardScore;
-
-    var highScorePlay = orderedTableByCardScore.Where(x => x.CardScore == highestScore);
-
-    if (highScorePlay.Count() > 1)
-    {
-        highestScore = highScorePlay.OrderByDescending(x => x.SuitScore).FirstOrDefault().SuitScore;
-        var playerList = orderedTableByCardScore.Where(x => x.SuitScore == highestScore).Select(x => x.Player);
-
-        winner = String.Join(",", playerList) + ":" + highestScore;
-    }
-    else
-    {
-        var player = highScorePlay.FirstOrDefault();
-        winner = player.Player + ":" + player.CardScore;
-    }
-
-
-
-    //foreach (var item in orderedTable)
-    //{
-    //    Console.WriteLine(item.Player
-    //        + "\t" + String.Join(",", item.Cards) +
-    //       "\t\t" + item.SuitScore.ToString() +
-    //       "\t\t" + item.CardScore.ToString());
-    //}
-
-    //Console.WriteLine();
+  DisplayResults("An error has occurred.");
+  return;
 }
 
-
-
-File.WriteAllText("xyz.txt", string.Empty);
-
-using (StreamWriter writer = new StreamWriter("xyz.txt"))
+foreach (var game in gameList)
 {
-    writer.WriteLine(winner);
-    
-}
-int milliseconds = 3000;
-Thread.Sleep(milliseconds);
-Console.WriteLine();
-Console.WriteLine("Processing Completed. Please check output file");
+  var listOfCards = game.Split(':')[1].Split(',');
 
-//Console.WriteLine(String.Format("Winner : {0}", output.ToString()));
-// Suspend the screen.  
-System.Console.ReadLine();
+  gameTable.Add(new GameTable
+  {
+    Player = game.Split(':')[0],
+    Cards = listOfCards,
+    CardScore = card.GetCardScore(listOfCards),
+    SuitScore = suit.GetSuitScore(listOfCards)
+  });
+}
+
+var highestScore = gameTable.Max(x => x.CardScore);
+var highScorePlay = gameTable.Max(x => x.SuitScore);
+var playerList = gameTable.Where(x => x.SuitScore == highestScore).Select(x => x.Player);
+
+DisplayResults(string.Join(",", playerList) + ":" + highestScore);
+
+void DisplayResults(string listOfWinners)
+{
+  File.WriteAllText("xyz.txt", string.Empty);
+
+  using (var writer = new StreamWriter("xyz.txt"))
+  {
+    writer.WriteLine(listOfWinners);
+  }
+
+  Thread.Sleep(3000);
+
+  WriteLine("\n Processing Completed. Please check output file");
+
+  ReadLine();
+}

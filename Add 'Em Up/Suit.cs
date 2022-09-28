@@ -1,23 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Add__Em_Up
+﻿namespace Game
 {
-    public class Suit
+  public class Suit
+  {
+    private IEnumerable<KeyValuePair<string, int>> Suits => GetSuitList();
+    
+    public List<KeyValuePair<string, int>> GetSuitList()
     {
-        public List<KeyValuePair<string, int>> GetSuit()
-        {
-            List<KeyValuePair<string, int>> suits = new List<KeyValuePair<string, int>>()
-            {
-                new KeyValuePair<string, int>("D", 2),
-                new KeyValuePair<string, int>("H", 3),
-                new KeyValuePair<string, int>("S", 4),
-                new KeyValuePair<string, int>("C", 1)
-            };
-            return suits;
-        }
+      return new List<KeyValuePair<string, int>>()
+      {
+        new("D", 2), new("H", 3), new("S", 4), new("C", 1)
+      };
     }
+
+    public int GetSuitScore(string[] cards)
+    { 
+      return cards.Sum(card => Suits.FirstOrDefault(x => x.Key == card.Substring(1, 1)).Value);
+    }
+  }
 }

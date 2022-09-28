@@ -1,36 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Add__Em_Up
+﻿namespace Game
 {
-    public class Card
+  public class Card
+  {
+    public List<KeyValuePair<string, int>> Cards => GetCards();
+
+    public List<KeyValuePair<string, int>> GetCards()
     {
-
-
-       public List<KeyValuePair<string, int>> GetCards()
-        {
-            List<KeyValuePair<string, int>> cards = new List<KeyValuePair<string, int>>(){
-                new KeyValuePair<string, int>("A", 1),
-                new KeyValuePair<string, int>("2", 2),
-                new KeyValuePair<string, int>("3", 3),
-                new KeyValuePair<string, int>("4", 4),
-                new KeyValuePair<string, int>("5", 5),
-                new KeyValuePair<string, int>("6", 6),
-                new KeyValuePair<string, int>("7", 7),
-                new KeyValuePair<string, int>("8", 8),
-                new KeyValuePair<string, int>("9", 9),
-                new KeyValuePair<string, int>("10", 10),
-                new KeyValuePair<string, int>("J", 11),
-                new KeyValuePair<string, int>("Q", 12),
-                new KeyValuePair<string, int>("K", 13)
-            };
-            return cards;
-   
-        }
-        
+      return new List<KeyValuePair<string, int>>()
+      {
+        new ("A", 1), new ("2", 2), new ("3", 3), new ("4", 4),
+        new ("5", 5), new ("6", 6), new ("7", 7), new ("8", 8),
+        new ("9", 9), new ("10", 10), new ("J", 11), new ("Q", 12),
+        new ("K", 13)
+      };
     }
+
+    public int GetCardScore(string[] cards) => cards.Sum(card => Cards.FirstOrDefault(x => x.Key == card[..1]).Value);
+  }
 }
 

@@ -13,3 +13,18 @@ C:\Repos\bet-online-mps\back-end\Add 'Em Up\Add 'Em Up\obj\Debug\net6.0\refint\w
 C:\Repos\bet-online-mps\back-end\Add 'Em Up\Add 'Em Up\obj\Debug\net6.0\winner.pdb
 C:\Repos\bet-online-mps\back-end\Add 'Em Up\Add 'Em Up\obj\Debug\net6.0\winner.genruntimeconfig.cache
 C:\Repos\bet-online-mps\back-end\Add 'Em Up\Add 'Em Up\obj\Debug\net6.0\ref\winner.dll
+C:\Repos\Add-Em-Up\Add 'Em Up\bin\Debug\net6.0\winner.exe
+C:\Repos\Add-Em-Up\Add 'Em Up\bin\Debug\net6.0\winner.deps.json
+C:\Repos\Add-Em-Up\Add 'Em Up\bin\Debug\net6.0\winner.runtimeconfig.json
+C:\Repos\Add-Em-Up\Add 'Em Up\bin\Debug\net6.0\winner.dll
+C:\Repos\Add-Em-Up\Add 'Em Up\bin\Debug\net6.0\winner.pdb
+C:\Repos\Add-Em-Up\Add 'Em Up\obj\Debug\net6.0\winner.csproj.AssemblyReference.cache
+C:\Repos\Add-Em-Up\Add 'Em Up\obj\Debug\net6.0\winner.GeneratedMSBuildEditorConfig.editorconfig
+C:\Repos\Add-Em-Up\Add 'Em Up\obj\Debug\net6.0\winner.AssemblyInfoInputs.cache
+C:\Repos\Add-Em-Up\Add 'Em Up\obj\Debug\net6.0\winner.AssemblyInfo.cs
+C:\Repos\Add-Em-Up\Add 'Em Up\obj\Debug\net6.0\winner.csproj.CoreCompileInputs.cache
+C:\Repos\Add-Em-Up\Add 'Em Up\obj\Debug\net6.0\winner.dll
+C:\Repos\Add-Em-Up\Add 'Em Up\obj\Debug\net6.0\refint\winner.dll
+C:\Repos\Add-Em-Up\Add 'Em Up\obj\Debug\net6.0\winner.pdb
+C:\Repos\Add-Em-Up\Add 'Em Up\obj\Debug\net6.0\winner.genruntimeconfig.cache
+C:\Repos\Add-Em-Up\Add 'Em Up\obj\Debug\net6.0\ref\winner.dll

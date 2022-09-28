@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Add__Em_Up
 {
     public class GamePlay
     {
-
+        List<GameTable> table = new List<GameTable>();
+        SuitScore suitScore = new SuitScore();
+        CardScore cardScore = new CardScore();
         public List<GameTable>Play(string[] gameList)
         {
-            var table = new List<GameTable>();
-            var suitScore = new SuitScore();
-            var cardScore = new CardScore();
             foreach (string game in gameList)
             {
                 string[] cards = game.Split(':')[1].Split(',');

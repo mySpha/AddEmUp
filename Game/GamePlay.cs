@@ -3,24 +3,25 @@ namespace Game
 {
     public class GamePlay
     {
-        List<GameTable> table = new List<GameTable>();
-        SuitScore suitScore = new SuitScore();
-        CardScore cardScore = new CardScore();
+        public List<GameTable> Table = new();
+        public Suit SuitScore = new();
+        public Card CardScore = new();
+
         public List<GameTable>Play(string[] gameList)
         {
-            foreach (string game in gameList)
+            foreach (var game in gameList)
             {
-                string[] cards = game.Split(':')[1].Split(',');
+                var cards = game.Split(':')[1].Split(',');
 
-                table.Add(new GameTable
+                Table.Add(new GameTable
                 {
                     Player = game.Split(':')[0],
                     Cards = cards,
-                    CardScore = cardScore.GetCardScore(cards),
-                    SuitScore = suitScore.GetSuitScore(cards)
+                    CardScore = CardScore.GetCardScore(cards),
+                    SuitScore = SuitScore.GetSuitScore(cards)
                 });
             }
-            return table;
+            return Table;
         }
     }
 }

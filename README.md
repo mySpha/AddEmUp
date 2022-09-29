@@ -1,4 +1,4 @@
-# AddEmUp
+# Card Game
 Calculate high score in a card game
 Multiplayer card game called "Add 'Em Up" where 5 players are dealt 5 cards
 from a standard 52 card pack, and the winner is the one with the highest score. The score for each

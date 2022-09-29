@@ -28,11 +28,11 @@ foreach (var game in gameList)
   });
 }
 
-var highestScore = gameTable.Max(x => x.CardScore);
-var highScorePlay = gameTable.Max(x => x.SuitScore);
-var playerList = gameTable.Where(x => x.SuitScore == highestScore).Select(x => x.Player);
+var cardScore = gameTable.Max(x => x.CardScore);
+var suitScore = gameTable.Max(x => x.SuitScore);
+var playerList = gameTable.Where(x => x.SuitScore == suitScore && x.CardScore == cardScore).Select(x => x.Player);
 
-DisplayResults(string.Join(",", playerList) + ":" + highestScore);
+DisplayResults(string.Join(",", playerList) + ":" + cardScore);
 
 void DisplayResults(string listOfWinners)
 {
